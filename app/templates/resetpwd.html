@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResetPassword</title>
+</head>
+<body>
+    <h2>Passward Reset</h2>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="messages">{{message}}</div>
+        {% endfor %}
+        {% endif %}
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="otp">OTP: </label>
+        <input type="txt" name="txtotp" placeholder="OTP"/><br>
+        <label for="password">New Password:</label>
+        <input type="text" name="txtpassword1" placeholder="Password"/><br>
+        <label for="password">Confirm New Password:</label>
+        <input type="text" name="txtpassword2" placeholder="Confirm Password"/><br>
+        <input type="submit" value="Reset Passward">
+    </form>
+    <a href="{% url 'logi'%}">Back Login Page</a>
+</body>
+</html>
